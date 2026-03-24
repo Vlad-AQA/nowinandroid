@@ -302,10 +302,12 @@ private fun LazyStaggeredGridScope.onboarding(
                             modifier = Modifier
                                 .padding(horizontal = 24.dp)
                                 .widthIn(364.dp)
-                                .fillMaxWidth(),
+                                .fillMaxWidth()
+                                .testTag("DoneButton"),
                         ) {
                             Text(
                                 text = stringResource(R.string.feature_foryou_api_done),
+                                modifier = Modifier.testTag("DoneButtonText")
                             )
                         }
                     }
