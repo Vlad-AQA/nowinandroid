@@ -57,6 +57,7 @@ fun NiaTopAppBar(
                     imageVector = navigationIcon,
                     contentDescription = navigationIconContentDescription,
                     tint = MaterialTheme.colorScheme.onSurface,
+                    modifier = Modifier.testTag("searchIcon")
                 )
             }
         },
@@ -66,6 +67,7 @@ fun NiaTopAppBar(
                     imageVector = actionIcon,
                     contentDescription = actionIconContentDescription,
                     tint = MaterialTheme.colorScheme.onSurface,
+                    modifier = Modifier.testTag("optionsIcon")
                 )
             }
         },
