@@ -46,7 +46,7 @@ class ComposeTests : ConfigureTest(){
             step("Проверка элементов SearchPage") {
                 SearchScreen.iconSearchScreen.assertIsDisplayed()
                 SearchScreen.searchTextField.assertIsDisplayed()
-                SearchScreen.searchTextField.assertTextEquals("Recent searches")
+                SearchScreen.recentSearchesText.assertTextEquals("Recent searches")
             }
         }
     }
