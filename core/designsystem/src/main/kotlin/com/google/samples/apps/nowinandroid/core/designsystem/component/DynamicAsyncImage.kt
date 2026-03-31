@@ -33,6 +33,7 @@ import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalInspectionMode
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
@@ -41,6 +42,7 @@ import coil.compose.AsyncImagePainter.State.Loading
 import coil.compose.rememberAsyncImagePainter
 import com.google.samples.apps.nowinandroid.core.designsystem.R
 import com.google.samples.apps.nowinandroid.core.designsystem.theme.LocalTintTheme
+import com.google.samples.apps.nowinandroid.core.designsystem.component.Tags
 
 /**
  * A wrapper around [AsyncImage] which determines the colorFilter based on the theme
@@ -81,6 +83,7 @@ fun DynamicAsyncImage(
             painter = if (isError.not() && !isLocalInspection) imageLoader else placeholder,
             contentDescription = contentDescription,
             colorFilter = if (iconTint != Unspecified) ColorFilter.tint(iconTint) else null,
+            modifier = Modifier.testTag(Tags.IMAGE)
         )
     }
 }
