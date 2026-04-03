@@ -35,7 +35,13 @@ class ListItem(
     semanticsProvider: SemanticsNodeInteractionsProvider? = null
 ) : KLazyListItemNode<ListItem>(semanticNode, semanticsProvider) {
 
+    val icon = child<KNode> {
+        hasTestTag("icon")
+    }
 
+    val title = child<KNode> {
+        hasTestTag("title")
+    }
 }
 
 object LazyListScreen : ComposeScreen<LazyListScreen>() {
@@ -62,21 +68,3 @@ fun BaseNode<*>.createLazyList(
     lengthSemanticsPropertyKey = LazyListSizeSemantics,
 )
 
-class TopicsItem(
-    semanticNode: SemanticsNode,
-    semanticsProvider: SemanticsNodeInteractionsProvider? = null
-) : KLazyListItemNode<TopicsItem>(semanticNode, semanticsProvider){
-
-    val image = child<KNode> {
-        hasTestTag(Tags.IMAGE)
-    }
-    val title = child<KNode> {
-        hasTestTag(Tags.TITLE)
-    }
-    val iconPlus = child<KNode> {
-        hasTestTag(Tags.ICON_PLUS)
-    }
-    val checkedIcon = child<KNode> {
-        hasTestTag(Tags.CHECKED_ICON)
-    }
-}

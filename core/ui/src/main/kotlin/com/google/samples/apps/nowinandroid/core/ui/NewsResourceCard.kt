@@ -69,6 +69,7 @@ import coil.compose.rememberAsyncImagePainter
 import com.google.samples.apps.nowinandroid.core.designsystem.R.drawable
 import com.google.samples.apps.nowinandroid.core.designsystem.component.NiaIconToggleButton
 import com.google.samples.apps.nowinandroid.core.designsystem.component.NiaTopicTag
+import com.google.samples.apps.nowinandroid.core.designsystem.component.Tags
 import com.google.samples.apps.nowinandroid.core.designsystem.icon.NiaIcons
 import com.google.samples.apps.nowinandroid.core.designsystem.theme.NiaTheme
 import com.google.samples.apps.nowinandroid.core.model.data.FollowableTopic
@@ -207,6 +208,7 @@ fun NewsResourceHeaderImage(
 
         Image(
             modifier = Modifier
+                .testTag(Tags.NEWS_IMAGE)
                 .fillMaxWidth()
                 .height(180.dp),
             contentScale = ContentScale.Crop,
@@ -227,7 +229,7 @@ fun NewsResourceTitle(
     newsResourceTitle: String,
     modifier: Modifier = Modifier,
 ) {
-    Text(newsResourceTitle, style = MaterialTheme.typography.headlineSmall, modifier = modifier)
+    Text(newsResourceTitle, style = MaterialTheme.typography.headlineSmall, modifier = modifier.testTag(Tags.NEWS_TITLE))
 }
 
 @Composable
@@ -284,6 +286,7 @@ fun dateFormatted(publishDate: Instant): String = DateTimeFormatter
 fun NewsResourceMetaData(
     publishDate: Instant,
     resourceType: String,
+    modifier: Modifier = Modifier,
 ) {
     val formattedDate = dateFormatted(publishDate)
     Text(
@@ -293,14 +296,16 @@ fun NewsResourceMetaData(
             formattedDate
         },
         style = MaterialTheme.typography.labelSmall,
+        modifier = modifier.testTag(Tags.NEWS_DATE)
     )
 }
 
 @Composable
 fun NewsResourceShortDescription(
     newsResourceShortDescription: String,
+    modifier: Modifier = Modifier,
 ) {
-    Text(newsResourceShortDescription, style = MaterialTheme.typography.bodyLarge)
+    Text(newsResourceShortDescription, style = MaterialTheme.typography.bodyLarge, modifier = modifier.testTag(Tags.NEWS_DESC_TEXT))
 }
 
 @Composable
@@ -311,7 +316,8 @@ fun NewsResourceTopics(
 ) {
     Row(
         // causes narrow chips
-        modifier = modifier.horizontalScroll(rememberScrollState()),
+        modifier = modifier.horizontalScroll(rememberScrollState())
+            .testTag(Tags.TOPIC_TAG_ROW),
         horizontalArrangement = Arrangement.spacedBy(4.dp),
     ) {
         for (followableTopic in topics) {
@@ -336,7 +342,7 @@ fun NewsResourceTopics(
                             .semantics {
                                 this.contentDescription = contentDescription
                             }
-                            .testTag("topicTag:${followableTopic.topic.id}"),
+                            .testTag("${Tags.TOPIC_TAG}:${followableTopic.topic.id}"),
                     )
                 },
             )

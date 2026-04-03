@@ -38,6 +38,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.dp
 import com.google.samples.apps.nowinandroid.core.analytics.LocalAnalyticsHelper
+import com.google.samples.apps.nowinandroid.core.designsystem.component.lazyListItemPosition
 import com.google.samples.apps.nowinandroid.core.designsystem.theme.NiaTheme
 import com.google.samples.apps.nowinandroid.core.model.data.UserNewsResource
 
@@ -58,8 +59,8 @@ fun LazyStaggeredGridScope.newsFeed(
             itemsIndexed(
                 items = feedState.feed,
                 key = {_,item-> item.id },
-                contentType = { "newsFeedItem" },
-            ) { userNewsResource ->
+                contentType = { _,_->"newsFeedItem" },
+            ) { index, userNewsResource ->
                 val context = LocalContext.current
                 val analyticsHelper = LocalAnalyticsHelper.current
                 val backgroundColor = MaterialTheme.colorScheme.background.toArgb()
@@ -85,6 +86,7 @@ fun LazyStaggeredGridScope.newsFeed(
                     },
                     onTopicClick = onTopicClick,
                     modifier = Modifier
+                        .lazyListItemPosition(index)
                         .padding(horizontal = 8.dp)
                         .animateItem(),
                 )

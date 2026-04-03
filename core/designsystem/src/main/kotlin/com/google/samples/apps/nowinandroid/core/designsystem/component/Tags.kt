@@ -21,5 +21,13 @@ object Tags {
     const val ICON_PLUS = "iconPlus"
     const val CHECKED_ICON = "checkedIcon"
     const val TITLE = "title"
+    const val NEWS_IMAGE = "newsImage"
+
+    const val NEWS_TITLE = "newsTitle"
+
+    const val NEWS_DATE = "newsDate"
+    const val NEWS_DESC_TEXT = "DescriptionTextNews"
+    const val TOPIC_TAG = "topicTag"
+    const val TOPIC_TAG_ROW = "topicTagRow"
 
 }
