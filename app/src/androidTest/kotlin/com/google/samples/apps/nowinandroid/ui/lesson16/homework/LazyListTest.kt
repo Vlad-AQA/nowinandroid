@@ -32,6 +32,11 @@ class LazyListTest : ConfigureTest() {
                     checkedIcon.assertIsDisplayed()
                 }
             }
+            step("Проверяем что новости подтянулись") {
+                LazyHomeScreen.newsList.childAt<NewsItems>(0){
+                    assertIsDisplayed()
+                }
+            }
 
         }
     }

@@ -7,7 +7,7 @@ object LazyHomeScreen : ComposeScreen<LazyHomeScreen>() {
 
     val topicList = createLazyList(
         viewBuilderAction = {
-            hasTestTag("topicSelectionTestTag")
+            hasTestTag("forYou:topicSelection")
         },
         itemTypeBuilder = {
             itemType(::TopicsItem)

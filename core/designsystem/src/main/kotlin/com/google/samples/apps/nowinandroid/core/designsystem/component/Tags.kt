@@ -18,7 +18,7 @@ package com.google.samples.apps.nowinandroid.core.designsystem.component
 
 object Tags {
     const val IMAGE = "image"
-    const val ICON_PLUS = "iconPlus"
+    const val ICON_PLUS = "plusIcon"
     const val CHECKED_ICON = "checkedIcon"
     const val TITLE = "title"
     const val NEWS_IMAGE = "newsImage"

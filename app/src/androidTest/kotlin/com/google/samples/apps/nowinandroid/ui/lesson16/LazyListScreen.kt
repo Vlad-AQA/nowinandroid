@@ -22,6 +22,7 @@ import androidx.compose.ui.test.SemanticsNodeInteractionsProvider
 import com.google.samples.apps.nowinandroid.core.designsystem.component.LazyListItemPositionSemantics
 import com.google.samples.apps.nowinandroid.core.designsystem.component.LazyListSizeSemantics
 import com.google.samples.apps.nowinandroid.core.designsystem.component.Tags
+import com.google.samples.apps.nowinandroid.ui.lesson16.homework.TopicsItem
 import io.github.kakaocup.compose.node.builder.ViewBuilder
 import io.github.kakaocup.compose.node.core.BaseNode
 import io.github.kakaocup.compose.node.element.ComposeScreen
