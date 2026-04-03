@@ -1,6 +1,5 @@
 package com.google.samples.apps.nowinandroid.ui.lesson16.homework
 
-import com.google.samples.apps.nowinandroid.ui.lesson16.TopicsItem
 import com.google.samples.apps.nowinandroid.ui.lesson16.createLazyList
 import io.github.kakaocup.compose.node.element.ComposeScreen
 
